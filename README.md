@@ -1,0 +1,2 @@
+# tomcruseal.github.io
+myblog
