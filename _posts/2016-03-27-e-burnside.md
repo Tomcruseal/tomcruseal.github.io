@@ -22,6 +22,7 @@ In my opinion,conjugation can be interpreted as  a way to divide a group into ce
 >
 >**For** **Burside's Counting Theory**,the complete defination is:
 Let $G$ be a **finite** group acting on a set $X$ and let $k$ denote the number of orbits of $X$.Then
+>
 $$k=\frac{1}{|G|}\sum_{g\in G}|X_g|$$
 >
 >**But how to prove it? I haven't understand the theory of the proof in the textbook,maybe I can solve it in the future.**
@@ -39,6 +40,7 @@ $X_{(13)}=2\ast (2\ast 2)$
 $X_{(24)}=2\ast (2\ast 2)$
 >
 >$X_{(1432)}=2$
+>
 $X_{(1234)}=2$
 >
 $X_{(12)(34)}=2\ast 2$
