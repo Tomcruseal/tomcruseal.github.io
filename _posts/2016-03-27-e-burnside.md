@@ -12,8 +12,8 @@ comments: true
 >
 >**Firstly**,what is G-set?According to the textbook,the definition of G-set is below:
 Let $X$ be a set and $G$ be a group.A (left)action of $G$ on $X$ is a map $G\times X\rightarrow X $given by $(g,x)\rightarrow gx$,where
-1.$ex=x$ for all $x\in X$;(propertity of identity)
-2.$(g_1g_2)x=g_1(g_2x)$for all $x\in X$ and all $g_1,g_2\in G$(property of association)
+1.$ex=x$ for all $x\in X$;(**propertity of identity**)
+2.$(g_1g_2)x=g_1(g_2x)$for all $x\in X$ and all $g_1,g_2\in G$(**property of association**)
 >
 >**Secondly**,the concept of conjugation is also important.Let $G$ be a group and suppose that $X=G$.If $H$ is a subgroup of $G$,then $G$ is an $H$-set under conjugation;that is,we can define an action of H on G,$H\times G\rightarrow G$ via $(h,g)\rightarrow hgh^{-1}$
 In my opinion,conjugation can be interpreted as  a way to divide a group into certain parts and the elements in each partition of the group shared the same rules of arithmetic--$hgh^{-1}$And such parts are called **Conjugate classes**
