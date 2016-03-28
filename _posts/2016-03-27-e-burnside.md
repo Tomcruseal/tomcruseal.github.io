@@ -35,13 +35,13 @@ $X_{(1)}=2^4$
 $X_{(13)}=2*(2*2)$
 (this means that corner 1 and 3 have the same colour,both white or both black)
 >
-$X_{(24)}=2*(2*2)$
+$X_{(24)}=2\ast (2\ast 2)$
 $X_{(1432)}=2$
 $X_{(1234)}=2$
-$X_{(12)(34)}=2*2$
-$X_{(14)(23)}=2*2$
-$X_{(13)(24)}=2*2$
-**Since** $|G|=2n=8$,so $k=\frac{1}{8}*(16+8+8+2+2+4+4+4)=6$
+$X_{(12)(34)}=2\ast 2$
+$X_{(14)(23)}=2\ast 2$
+$X_{(13)(24)}=2\ast 2$
+**Since** $|G|=2n=8$,so $k=\frac{1}{8}\ast (16+8+8+2+2+4+4+4)=6$
 there are 6 ways to colour such a square's  vertices with colour black and white.
 >
 >**At** last,I will note an extended proposition and leave its proof for future study:
