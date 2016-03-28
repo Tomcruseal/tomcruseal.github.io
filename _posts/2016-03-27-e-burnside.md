@@ -30,9 +30,9 @@ $$k=\frac{1}{|G|}\sum_{g\in G}|X_g|$$
 >Considering **Dihedral group**.Since $D_n$is a subgroup of $S_n$ and its order is $2n$ and it reflects 2 kinds of motions to a regular n-gon:**Rotation and Reflection**.(Actually,the elements of group $D_n$ satisfy the following 3 relations:$1.r^n=e;\ 2.s^2=e;\ 3.srs=r^{-1}$ where e is the identity. **are there more than 1 identities in a Dihedral group?**)So,for a square,consider the $D_4$ group,since a dihedral group is a permutation group,the elements of the $D_4$ are:$(1)\ (13)\ (24)\ (1432)\ (1234)\ (12)(34)\ (14)(23)\ (13)(24)$
 >From **Burnside theorem**,we can compute that:
 $X_{(1)}=2^4$
->4 corners with each 2 possible colours
+4 corners with each 2 possible colours
 $X_{(13)}=2*(2*2)$
->this means that corner 1 and 3 have the same colour,both white or both black
+this means that corner 1 and 3 have the same colour,both white or both black
 $X_{(24)}=2*(2*2)$
 $X_{(1432)}=2$
 $X_{(1234)}=2$
