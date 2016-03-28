@@ -1,6 +1,6 @@
 ---
 layout: post
-title: An interesting question about Burnside Lemma
+title: An Interesting Question about Burnside Lemma
 categories: [Algebra]
 tags: []
 fullview: true
