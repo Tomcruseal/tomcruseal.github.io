@@ -25,11 +25,11 @@ comments: true
 >其实也没有什么可以写的了，下面是一些教训呵：
 >
 * 1对远程对象进行注册时要加上注册名，不然会报**NullPointerException**错误
-```
+
 {% highlight java linenos %}
 String registryURL="rmi://"+hostName+":"+portNum+"/some";
 {% endhighlight %}
-```
+
 * 2如果是在本地调试，客户端文件与服务器端文件应分别放在两个不同的文件夹。
 * 3有时候测试会出现奇奇怪怪的错误，比如在win8.1下和Ubuntu12.04下运行结果不同，比如站着运行和坐着运行也会有不同的结果：-）
 * 4Ubuntu12.04有自带的截图软件——screenshot
@@ -38,16 +38,16 @@ String registryURL="rmi://"+hostName+":"+portNum+"/some";
 >最后贴一贴核心代码吧，其实和书本上的很像，可是却debug了那么久
 >
 接口**DaytimeInterface.java**
-```
+
 {% highlight java linenos %}
 import java.rmi.*;
 public interface DaytimeInterface extends Remote{
 public String returnTime(String name) throws RemoteException;
 }
 {% endhighlight %}
-```
+
 接口的实现**DaytimeImpl.java**
-```
+
 {% highlight java linenos %}
 import java.rmi.*;
 import java.rmi.server.*;
@@ -62,9 +62,9 @@ return "Day Time:"+timestamp.toString();
 }
 }
 {% endhighlight %}
-```
+
 服务器端**DaytimeServer.java**
-```
+
 {% highlight java linenos %}
 public class DaytimeServer{
 public static void main(String[] args){
@@ -84,9 +84,9 @@ System.out.println("Exception in DaytimeServer.main:"+e.getMessage());
 }
 }
 {% endhighlight %}
-```
+
 其中有两个涉及到注册的方法**startRegistry()**和**listRegistry()**作用如方法名。
-```
+
 {% highlight java linenos %}
 private static void startRegistry(int RMIPortNum) throws RemoteException{
 try{
@@ -100,8 +100,8 @@ System.out.println("RMI registry created at .port"+RMIPortNum);
 }
 }
 {% endhighlight %}
-```
-```
+
+
 {% highlight java linenos %}
 private static void listRegistry(String registryURL) throws RemoteException,MalformedURLException{
 System.out.println("Registry"+registryURL+"contains:");
@@ -111,9 +111,9 @@ System.out.println(names[i]);
 }
 }
 {% endhighlight %}
-```
+
 客户端**DaytimeClient.java**
-```
+
 {% highlight java linenos %}
 public class DaytimeClient{
 public static void main(String args[]){
@@ -140,9 +140,9 @@ System.out.println("Exception in DaytimeClient:"+e);
 }
 }
 {% endhighlight %}
-```
+
 每个文件都有导入类，概括起来大致是：
-```
+
 {% highlight java linenos %}
 import java.rmi.*;
 import java.io.*;
@@ -151,5 +151,5 @@ import java.registry.LocateRegistry;
 import java.net.*;
 import java.server.*;
 {% endhighlight %}
-```
+
 就这些了，java还得继续学。
