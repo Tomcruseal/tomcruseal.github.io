@@ -23,7 +23,7 @@ and $c$ is some point between $x$ and $a$ .
 >**Next**,I will note my proof,which is modified from that in textbook.
 >From **Taloy's Theorem**,we can write $R_n(x)$ as:
 $$
-R_n(x)=f(x)-f(a)-f'(a)(x)(x-a)-\frac{f''(a)}{2!}(x-a)^2-...-\frac{f^{(n)}(a)}{n!}(x-a)^n
+R_n(x)=f(x)-f(a)-f'(a)(x-a)-\frac{f''(a)}{2!}(x-a)^2-...-\frac{f^{(n)}(a)}{n!}(x-a)^n
 $$
 Then,consider a new function $g$ on $I$ whrere $x$ and $a$ are constants:
 >
