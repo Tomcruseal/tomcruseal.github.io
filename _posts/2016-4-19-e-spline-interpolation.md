@@ -17,7 +17,7 @@ So,how to find the best approximation of such form that goes near the points?Err
 
 >**Since** the 3rd norm is easier to be minimized computationally,it is the traditon choice.
 
->**Theorem 5.1 (Least-Square Line)**. Suppose that $\lbrace (x_{k},y_{k}) \rbrace ^{N}_{k=1}$ are N points,where the abscissas $\lbracex_k\rbrace^{N}_{k=1}$ are distinct.The coefficients of the least-squares line:
+>**Theorem 5.1 (Least-Square Line)**. Suppose that $\{(x_{k},y_{k})\}_{k=1}^N$ are N points,where the abscissas $\{x_k\}^{N}_{k=1}$ are distinct.The coefficients of the least-squares line:
 $$
 y=Ax+B
 $$
