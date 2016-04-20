@@ -11,6 +11,7 @@ Linear function has the form:$y=f(x)=Ax+B$
 So,how to find the best approximation of such form that goes near the points?Errors is a vital concept.The error is defined as $e_k=f(x_k)-y_k$
 
 >**There** are 3 kinds of errors:
+^
 * Maximum error:$E_{\infty}(f)=max\{|f(x_k)-y_k|\}$
 ^
 * Average error:$E_1(f)=\frac{1}{N}\sum_{k=1}^{N}|f(x_k)-y_k|$
@@ -118,6 +119,7 @@ $$
 
 >**There** are 5 conditions for endpoints constraints,I only list 3 of them:
 for clamped cubic($S'(x_0)\ and\ S'(x_n)$are known already):
+^
 * $m_0=\frac{3}{h_0}(d_0-S'(x_0))-\frac{m_1}{2}$
 ^
 * $m_N=\frac{3}{h_{N-1}}(S'(x_N)-d_{N-1})-\frac{m_{N-1}}{2}$
@@ -129,6 +131,7 @@ for clamped cubic($S'(x_0)\ and\ S'(x_n)$are known already):
 * $m_N=0$
 
 >for entrapolate S''(x) to the endpoints:
+^
 * $m_0=m_1-\frac{h_0(m_2-m_1)}{h_1}$
 ^
 * $m_N=m_{N-1}+\frac{h_{N-1}(m_{N-1}-m_{N-2})}{h_{N-2}}$
