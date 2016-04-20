@@ -17,7 +17,7 @@ So,how to find the best approximation of such form that goes near the points?Err
 
 >**Since** the 3rd norm is easier to be minimized computationally,it is the traditon choice.
 
->**Theorem 5.1 (Least-Square Line)**. Suppose that$\{(x_k,y_k)\}^{N}_{k=1}$are N points,where the abscissas $\{x_k\}^{N}_{k=1}$are distinct.The coefficients of the least-squares line:
+>**Theorem 5.1 (Least-Square Line)**. Suppose that`$\{(x_k,y_k)\}^{N}_{k=1}$`are N points,where the abscissas `$\{x_k\}^{N}_{k=1}$`are distinct.The coefficients of the least-squares line:
 $$
 y=Ax+B
 $$
@@ -45,7 +45,7 @@ $$
 
 >**By** set them to 0,we can get the **normal equations**
 Then goes **Piecewise Cubic Splines**
-Suppose that ${{x_k},{y_k}}^{N}_{k=0}$ are ${N+1}$ points,where $a=x_0< {x_1} < \cdots < x_N = b$.The function $S(x)$ is called a cubic spline if there exists $N$ cubic polynomials $S_k(x)$ with coeficients $s_{k,0}$,$s_{k,1}$,$s_{k,2}$,and $s_{k,3}$that satisfy the following properties:
+Suppose that `$\{x_k,y_k\}^{N}_{k=0}$` are `${N+1}$` points,where `$a=x_0< {x_1} < \cdots < x_N = b$`.The function $S(x)$ is called a cubic spline if there exists $N$ cubic polynomials `$S_k(x)$` with coeficients `$s_{k,0}$,$s_{k,1}$`,`$s_{k,2}$`,and `$s_{k,3}$`that satisfy the following properties:
 
 $$
 S(x)=S_k(x)=S_{k,0}+S_{k,1}(x-x_k)+S_{x,2}(x-x_k)^2+S_{k,3}(x-x_k)^3 ,for\ x \in[x_k,x_{k+1}]
@@ -130,11 +130,11 @@ for clamped cubic($S'(x_0)\ and\ S'(x_n)$are known already):
 * $s_{k,3}=\frac{m_{k+1}-m_k}{6h_k}$
 
 >**Next** I will give the **proof** of it:
-$S(x_k)=S_k(x_k)=s_{k,0}=y_k$
+`$S(x_k)=S_k(x_k)=s_{k,0}=y_k$`
 then,constantly derive $S(x)$:
-$S'(x)=S'_k(x)=s_{k,1}+2s_{k,2}(x-x_k)+3s_{k,3}(x-x_k)^2$,so $S'(x_k)=S'_k(x_k)=s_{k,1}=d_k-\frac{h_k(m_{k+1}+2m_k)}{6}$
-$S''(x)=S''_k(x)=2s_{k,2}+6s_{k,3}(x-x_k)=m_k$,so $s_{x,2}=\frac{m_k}{2}$
-For $s_{k,3}$,assume it $s_{k,3}=\frac{m_{k+1}-m_k}{6h_k}$ is right,then
-$\frac{S''(x_{k+1})-S''(x_k)}{6(x_{k+1}-x_k)}\cdot 6(x-x_k)+S''(x_k)=S''_k(x)$
+`$S'(x)=S'_k(x)=s_{k,1}+2s_{k,2}(x-x_k)+3s_{k,3}(x-x_k)^2$`,so `$S'(x_k)=S'_k(x_k)=s_{k,1}=d_k-\frac{h_k(m_{k+1}+2m_k)}{6}$`
+`$S''(x)=S''_k(x)=2s_{k,2}+6s_{k,3}(x-x_k)=m_k$`,so `$s_{x,2}=\frac{m_k}{2}$`
+For `$s_{k,3}$`,assume it `$s_{k,3}=\frac{m_{k+1}-m_k}{6h_k}$` is right,then
+`$\frac{S''(x_{k+1})-S''(x_k)}{6(x_{k+1}-x_k)}\cdot 6(x-x_k)+S''(x_k)=S''_k(x)$`
 the first term can be viewd as slope,and it is a good approximation to the right.(**I don't know how to explain it...**)
 I'd like to include more,but,maybe next time.
