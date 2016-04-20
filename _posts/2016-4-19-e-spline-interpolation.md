@@ -11,7 +11,6 @@ Linear function has the form:$y=f(x)=Ax+B$
 So,how to find the best approximation of such form that goes near the points?Errors is a vital concept.The error is defined as $e_k=f(x_k)-y_k$
 
 >**There** are 3 kinds of errors:
-^
 * Maximum error:$E_{\infty}(f)=max\{|f(x_k)-y_k|\}$
 ^
 * Average error:$E_1(f)=\frac{1}{N}\sum_{k=1}^{N}|f(x_k)-y_k|$
@@ -26,7 +25,8 @@ y=Ax+B
 $$
 
 >are the solution to the following linear system(**normal equation**)
-$$
+
+>$$
 A\sum^{N}_{k=1}x_k^2+B\sum^{N}_{k=1}x_k=\sum^{N}_{k=1}x_ky_k. 
 $$
 
