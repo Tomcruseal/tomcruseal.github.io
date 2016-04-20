@@ -9,14 +9,14 @@ comments: true
 >**Firstly**,because of the arrangement of the textbook,I read the parts of Least-Square line priory to interpolation by spline function,so I note the introduction of Least-Square line firstly.
 Linear function has the form:$y=f(x)=Ax+B$
 So,how to find the best approximation of such form that goes near the points?Errors is a vital concept.The error is defined as $e_k=f(x_k)-y_k$
->
+
 >**There** are 3 kinds of errors:
 1. Maximum error:$E_{\infty}(f)=max\{|f(x_k)-y_k|\}$
 2. Average error:$E_1(f)=\frac{1}{N}\sum_{k=1}^{N}|f(x_k)-y_k|$
 3. Root-Mean-Square error:$E_2(f)=[\frac{1}{N}\sum_{k=1}^{N}(f(x_k)-y_k)^2]^\frac{1}{2}$
->
+
 >**Since** the 3rd norm is easier to be minimized computationally,it is the traditon choice.
->
+
 >**Theorem 5.1 (Least-Square Line)**. Suppose that$\{(x_k,y_k)\}^{N}_{k=1}$are N points,where the abscissas $\{x_k\}^{N}_{k=1}$are distinct.The coefficients of the least-squares line:
 $$
 y=Ax+B
@@ -28,7 +28,7 @@ $$
 $$
 A\sum^{N}_{k=1}x_k+NB=\sum^{N}_{k=1}y_k
 $$
->
+
 >**Below** is the proof of it:
 According to the definition of Root-Mean-Square error,we can write E as:
 $$
@@ -42,7 +42,7 @@ $$
 $$
 \frac{\partial E(A,B)}{\partial B}=\sum^{N}_{k=1}2(Ax_k+B-y_k)\cdot1=2\sum^{N}_{k=1}Ax_k+B-y_k
 $$
->
+
 >**By** set them to 0,we can get the **normal equations**
 Then goes **Piecewise Cubic Splines**
 Suppose that $\{x_k,y_k\}^{N}_{k=0}$are $N+1$ points,where $a=x_0< x_1< \cdots< x_N=b$.The function $S(x)$ is called a cubic spline if there exists N cubic polynomials $S_k(x)$ with coeficients $s_{k,0}$,$s_{k,1}$,$s_{k,2}$,and $s_{k,3}$that satisfy the following properties:
@@ -61,7 +61,7 @@ $$
 $$
 S''_k(x_{k+1})=S''_{k+1}(x_{k+1}), k=0.1.\cdots,N-2
 $$
->
+
 >**Totally**,there are $4N-2$ equations while $4N$ coeficients to be determined,so 2 more preconditions we have to know--2 endpoints,usually $S'(x)$and $S''(x)$ at $x_0$and $x_N$
 Here belows are some inductions:
 Since $S(x)$ is piecewise cubic,$S''(x)$ is piecewise linear in $[x_0,x_N]$According to Lagrange Interpolation formula:
@@ -76,7 +76,7 @@ According to the textbook,
 $$
 S_k(x)=\frac{m_k}{6h_k}(x_{k+1}-x)^3+\frac{m_{k+1}}{6h_k}(x-x_k)^3+p_k(x_{k+1}-x)+q_k(x-x_k)
 $$
->
+
 >**However I still could't understand why to handle the constant $C$ like that,I have tried another way and obtain another form of $S(x)$ whereas difference is between terms whose degree is smaller than 3.I am not sure if the difference does make sense**
 Then substituting $x_k$ and $x_{k+1}$ into the equaiton and using the values that $y_k=S_k(x_k)$ and $y_{k+1}=S_k(x_{k+1})$above:
 $$
@@ -108,7 +108,7 @@ Since $S'_{k-1}(x_k)=S'_k(x_k)$,we can obtain:
 $$
 2m_k(h_{k-1}+h_k)+m_{k-1}h_{k-1}+m_{k+1}h_k=6u_k,\ where \ u_k=(d_k-d_{k-1})
 $$
->
+
 >**There** are 5 conditions for endpoints constraints,I only list 3 of them:
 1. for clamped cubic($S'(x_0)\ and\ S'(x_n)$are known already):
   * $m_0=\frac{3}{h_0}(d_0-S'(x_0))-\frac{m_1}{2}$
@@ -119,13 +119,13 @@ $$
 3. for entrapolate S''(x) to the endpoints:
   * $m_0=m_1-\frac{h_0(m_2-m_1)}{h_1}$
   * $m_N=m_{N-1}+\frac{h_{N-1}(m_{N-1}-m_{N-2})}{h_{N-2}}$
->
+
 >Coefficients for $\{s_{k,j}\}$ for $S_k(x)$ are computed using the formulas:
 * $s_{k,0}=y_k$ 
 * $s_{k,1}=d_k-\frac{h_k(m_{k+1}+2m_k)}{6}$
 * $s_{k,2}=\frac{m_k}{2}$
 * $s_{k,3}=\frac{m_{k+1}-m_k}{6h_k}$
->
+
 >**Next** I will give the **proof** of it:
 $S(x_k)=S_k(x_k)=s_{k,0}=y_k$
 then,constantly derive $S(x)$:
