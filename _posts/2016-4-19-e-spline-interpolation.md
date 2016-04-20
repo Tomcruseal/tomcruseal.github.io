@@ -131,9 +131,8 @@ for clamped cubic($S'(x_0)\ and\ S'(x_n)$are known already):
 
 >**Next** I will give the **proof** of it:
 $S(x_k)=S_k(x_k)=s_{k,0}=y_k$
-
->then,constantly derive $S(x)$:
-$S'(x)=S'_k(x)=s_{k,1}+2s_{k,2}(x-x_k)+3s_{k,3}(x-x_k)^2$,so $S'(x_k)=S'_k(x_k)=s_{k,1}=d_k-\frac{h_k(m_{k+1}+2m_k)}{6}$
+then,constantly derive $S(x)$ :
+$S'(x)$=$S'_k(x)$=$s_{k,1}+2s_{k,2}(x-x_k)+3s_{k,3}(x-x_k)^2$,so $S'(x_k)=S'_k(x_k)=s_{k,1}=d_k-\frac{h_k(m_{k+1}+2m_k)}{6}$
 $S''(x)=S''_k(x)=2s_{k,2}+6s_{k,3}(x-x_k)=m_k$,so $s_{x,2}=\frac{m_k}{2}$
 For $s_{k,3}$,assume it $s_{k,3}=\frac{m_{k+1}-m_k}{6h_k}$ is right,then
 $\frac{S''(x_{k+1})-S''(x_k)}{6(x_{k+1}-x_k)}\cdot 6(x-x_k)+S''(x_k)=S''_k(x)$
