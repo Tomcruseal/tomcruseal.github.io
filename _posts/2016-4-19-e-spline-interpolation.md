@@ -110,15 +110,17 @@ $$
 $$
 
 >**There** are 5 conditions for endpoints constraints,I only list 3 of them:
-1. for clamped cubic($S'(x_0)\ and\ S'(x_n)$are known already):
-  * $m_0=\frac{3}{h_0}(d_0-S'(x_0))-\frac{m_1}{2}$
-  * $m_N=\frac{3}{h_{N-1}}(S'(x_N)-d_{N-1})-\frac{m_{N-1}}{2}$
-2. for natural cubic spline:
-  * $m_0=0$
-  * $m_N=0$
-3. for entrapolate S''(x) to the endpoints:
-  * $m_0=m_1-\frac{h_0(m_2-m_1)}{h_1}$
-  * $m_N=m_{N-1}+\frac{h_{N-1}(m_{N-1}-m_{N-2})}{h_{N-2}}$
+for clamped cubic($S'(x_0)\ and\ S'(x_n)$are known already):
+* $m_0=\frac{3}{h_0}(d_0-S'(x_0))-\frac{m_1}{2}$
+*  $m_N=\frac{3}{h_{N-1}}(S'(x_N)-d_{N-1})-\frac{m_{N-1}}{2}$
+
+>for natural cubic spline:
+* $m_0=0$
+* $m_N=0$
+
+>for entrapolate S''(x) to the endpoints:
+* $m_0=m_1-\frac{h_0(m_2-m_1)}{h_1}$
+* $m_N=m_{N-1}+\frac{h_{N-1}(m_{N-1}-m_{N-2})}{h_{N-2}}$
 
 >Coefficients for $\{s_{k,j}\}$ for $S_k(x)$ are computed using the formulas:
 * $s_{k,0}=y_k$ 
