@@ -11,9 +11,12 @@ Linear function has the form:$y=f(x)=Ax+B$
 So,how to find the best approximation of such form that goes near the points?Errors is a vital concept.The error is defined as $e_k=f(x_k)-y_k$
 
 >**There** are 3 kinds of errors:
-1. Maximum error:$E_{\infty}(f)=max\{|f(x_k)-y_k|\}$ 
-2. Average error:$E_1(f)=\frac{1}{N}\sum_{k=1}^{N}|f(x_k)-y_k|$
-3. Root-Mean-Square error:$E_2(f)=[\frac{1}{N}\sum_{k=1}^{N}(f(x_k)-y_k)^2]^\frac{1}{2}$
+
+>1. Maximum error:$E_{\infty}(f)=max\{|f(x_k)-y_k|\}$ 
+
+>2. Average error:$E_1(f)=\frac{1}{N}\sum_{k=1}^{N}|f(x_k)-y_k|$
+
+>3. Root-Mean-Square error:$E_2(f)=[\frac{1}{N}\sum_{k=1}^{N}(f(x_k)-y_k)^2]^\frac{1}{2}$
 
 >**Since** the 3rd norm is easier to be minimized computationally,it is the traditon choice.
 
