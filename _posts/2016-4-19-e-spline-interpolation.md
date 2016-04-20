@@ -11,12 +11,9 @@ Linear function has the form:$y=f(x)=Ax+B$
 So,how to find the best approximation of such form that goes near the points?Errors is a vital concept.The error is defined as $e_k=f(x_k)-y_k$
 
 >**There** are 3 kinds of errors:
-
->1. Maximum error:$E_{\infty}(f)=max\{|f(x_k)-y_k|\}$ 
-
->2. Average error:$E_1(f)=\frac{1}{N}\sum_{k=1}^{N}|f(x_k)-y_k|$
-
->3. Root-Mean-Square error:$E_2(f)=[\frac{1}{N}\sum_{k=1}^{N}(f(x_k)-y_k)^2]^\frac{1}{2}$
+1. Maximum error:$E_{\infty}(f)=max\{|f(x_k)-y_k|\}$ 
+2. Average error:$E_1(f)=\frac{1}{N}\sum_{k=1}^{N}|f(x_k)-y_k|$
+3. Root-Mean-Square error:$E_2(f)=[\frac{1}{N}\sum_{k=1}^{N}(f(x_k)-y_k)^2]^\frac{1}{2}$
 
 >**Since** the 3rd norm is easier to be minimized computationally,it is the traditon choice.
 
@@ -63,23 +60,26 @@ $$
 $$
 S(x_k)=y_k ,\ k=0,1,2,\cdots, N-1 
 $$
+,
 $$
 S_k(x_{k+1})=S_{k+1}(x_{k+1}), k=0.1.\cdots,N-2
 $$
+,
 $$
 S'_k(x_{k+1})=S'_{k+1}(x_{k+1}), k=0.1.\cdots,N-2
 $$
+,
 $$
 S''_k(x_{k+1})=S''_{k+1}(x_{k+1}), k=0.1.\cdots,N-2
 $$
 
 >**Totally**,there are $4N-2$ equations while $4N$ coeficients to be determined,so 2 more preconditions we have to know--2 endpoints,usually $S'(x)$and $S''(x)$ at $x_0$and $x_N$
 Here belows are some inductions:
-Since $S(x)$ is piecewise cubic,$S''(x)$ is piecewise linear in $[x_0,x_N]$According to Lagrange Interpolation formula:
+Since $S(x)$ is piecewise cubic,$S^{(2)}(x)$ is piecewise linear in $[x_0,x_N]$According to Lagrange Interpolation formula:
 $$
 S''_k(x)=S''(x_k)\frac{x-x_{k+1}}{x_k-x_{k+1}}+S''(x_{k+1})\frac{x-x_k}{x_{k+1}-x_k}
 $$
-Assume that $m_k=S''(x_k)$,$h_k=x_{k+1}-x_k$,we can rewrite the above equation as:
+Assume that $m_k=S^{(2)}(x_k)$,$h_k=x_{k+1}-x_k$,we can rewrite the above equation as:
 $$
 S''_k(x)=\frac{m_k}{h_k}(x_{k+1}-x)+\frac{m_{k+1}}{h_k}(x-x_k)
 $$
