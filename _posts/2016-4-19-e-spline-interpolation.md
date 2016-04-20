@@ -45,7 +45,7 @@ $$
 
 >**By** set them to 0,we can get the **normal equations**
 Then goes **Piecewise Cubic Splines**
-Suppose that $\{x_k,y_k\}^{N}_{k=0}$are $N+1$ points,where $a=x_0< x_1< \cdots< x_N=b$.The function $S(x)$ is called a cubic spline if there exists N cubic polynomials $S_k(x)$ with coeficients $s_{k,0}$,$s_{k,1}$,$s_{k,2}$,and $s_{k,3}$that satisfy the following properties:
+Suppose that $\{x_k,y_k\}^{N}_{k=0}$ are $N+1$ points,where $a=x_0< x_1< \cdots< x_N=b$.The function $S(x)$ is called a cubic spline if there exists N cubic polynomials $S_k(x)$ with coeficients $s_{k,0}$,$s_{k,1}$,$s_{k,2}$,and $s_{k,3}$that satisfy the following properties:
 $$
 S(x)=S_k(x)=S_{k,0}+S_{k,1}(x-x_k)+S_{x,2}(x-x_k)^2+S_{k,3}(x-x_k)^3 ,for\ x \in[x_k,x_{k+1}]
 $$
