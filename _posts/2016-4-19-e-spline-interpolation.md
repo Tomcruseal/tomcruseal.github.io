@@ -123,6 +123,7 @@ for clamped cubic($S'(x_0)\ and\ S'(x_n)$are known already):
 * $m_N=\frac{3}{h_{N-1}}(S'(x_N)-d_{N-1})-\frac{m_{N-1}}{2}$
 
 >for natural cubic spline:
+^
 * $m_0=0$
 ^
 * $m_N=0$
@@ -133,6 +134,7 @@ for clamped cubic($S'(x_0)\ and\ S'(x_n)$are known already):
 * $m_N=m_{N-1}+\frac{h_{N-1}(m_{N-1}-m_{N-2})}{h_{N-2}}$
 
 >Coefficients for $\{s_{k,j}\}$ for $S_k(x)$ are computed using the formulas:
+^
 * $s_{k,0}=y_k$ 
 ^
 * $s_{k,1}=d_k-\frac{h_k(m_{k+1}+2m_k)}{6}$
