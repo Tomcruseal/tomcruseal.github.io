@@ -6,12 +6,13 @@ tags: []
 fullview: true
 comments: true
 ---
->**In** the class **Numerical Method**,a question arose for some times that how to prove **Taylor's Theorem**?At the early trials,I couldn't even think of any evidence to the right proof,so I looked over my Calculus book and finally got the answer.
+>**In** the class **Numerical Method**,a question arose for some times that how to prove **Taylor's Theorem**?At the early trials,I couldn't even think of any evidence to the right proof,so I looked over my Calculus book and finally got the answer.  
+
 >**Here** below is **Taylor's Theorem**:
 Let $f$ be a function whose $(n+1)$st derivative $f^{(n+1)}(x)$ exists for each x in an open interval $I$ containing $a$.Then,for each $x$ in $I$,
 $$
 f(x)=f(a)+f'(a)(x-a)+\frac{f''(a)}{2!}(x-a)^2+...+\frac{f^{(n)}(a)}{n!}(x-a)
-^n+R_{n}(x)$$
+^n+R_{n}(x)$$  
 where the remiander (or error) $R_n(x)$ is given by the formula
 $$
 R_n(x)=\frac{f^{(n+1)}(c)}{(n+1)!}(x-a)^{n+1}
@@ -29,7 +30,7 @@ Then,consider a new function $g$ on $I$ whrere $x$ and $a$ are constants:
 >
 $$
 g(t)=f(x)-f(t)-f'(t)(x-t)-\frac{f''(t)(x-t)^2}{2!}-...-\frac{f^{(n)}(t)}{n!}(x-t)^n-R_n(x)\frac{(x-t)^{n+1}}{(x-a)^{n+1}}
-$$
+$$  
 Clearly,$g(x)=0$
 >
 >Then,

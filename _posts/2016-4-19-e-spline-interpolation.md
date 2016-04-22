@@ -95,9 +95,9 @@ y_k=\frac{m_k}{6}h_k^2+p_kh_k
 $$
 $$
 y_{k+1}=\frac{m_{k+1}}{6}h_k^2+q_kh_k
-$$
-then it is easy:$p_k=\frac{y_k}{h_k}-\frac{m_kh_k}{6}$,$q_k=\frac{y_{k+1}}{h_k}-\frac{m_{k+1}h_k}{6}$
-Then,
+$$  
+then it is easy:$p_k=\frac{y_k}{h_k}-\frac{m_kh_k}{6}$,$q_k=\frac{y_{k+1}}{h_k}-\frac{m_{k+1}h_k}{6}$  
+Then,  
 $$
 S_k(x)=\frac{m_k}{6h_k}(x_{k+1}-x)^3+\frac{m_{k+1}}{6h_k}(x-x_k)^3+(\frac{y_k}{h_k}-\frac{m_kh_k}{6})(x_{k+1}-x)+(\frac{y_{k+1}}{h_k}-\frac{m_{k+1}h_k}{6})(x-x_k)
 $$
@@ -114,7 +114,7 @@ S'_{k-1}(x)=-\frac{m_{k-1}}{2h_{k-1}}(x_{k}-x)^2+\frac{m_{k}}{2h_{k-1}}(x-x_{k-1
 $$
 $$
 S'_{k-1}(x_k)=\frac{m_k}{3}h_{k-1}+d_{k-1}+\frac{m_{k-1}h_{k-1}}{6}
-$$
+$$  
 Since $S'_{k-1}(x_k)=S'_k(x_k)$,we can obtain:
 $$
 2m_k(h_{k-1}+h_k)+m_{k-1}h_{k-1}+m_{k+1}h_k=6u_k,\ where \ u_k=(d_k-d_{k-1})
