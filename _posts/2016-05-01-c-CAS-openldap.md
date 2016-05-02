@@ -16,22 +16,22 @@ The suite includes:
 + libraries implementing the LDAP protocol, and
 + utilities, tools, and sample clients.  
 首先，`sudo apt-get install slapd ldap-utils`安装软件包，安装完成后编辑配置文件`/etc/ldap/ldap.conf`，修改后的内容如下：  
-{% highlight conf linenos %}
-\#
-\# LDAP Defaults
-\#
+{% highlight java linenos %}
+#
+# LDAP Defaults
+#
 
-\# See ldap.conf(5) for details
-\# This file should be world readable but not world writable.
+# See ldap.conf(5) for details
+# This file should be world readable but not world writable.
 
 BASE	dc=test,dc=com
 URI	ldap://test.com ldap://test.com:666
 
-\#SIZELIMIT	12
-\#TIMELIMIT	15
-\#DEREF		never
+#SIZELIMIT	12
+#TIMELIMIT	15
+#DEREF		never
 
-\# TLS certificates (needed for GnuTLS)
+# TLS certificates (needed for GnuTLS)
 TLS_CACERT	/etc/ssl/certs/ca-certificates.crt
 {% endhighlight %}  
 编辑完成后保存，执行以下命令：
@@ -204,13 +204,13 @@ CAS与LDAP集成有FastBindLdapAuthenticationHandler和BindLdapAuthenticationHan
 
 
 参考：  
-* [web.xml的配置说明](https://wiki.jasig.org/display/CASC/Configuring+the+Jasig+CAS+Client+for+Java+in+the+web.xml)
-* [cas-client](https://github.com/Jasig/java-cas-client)  
-* [a blog about tomcat cas configurations](https://www.howtoforge.com/how-to-set-up-apache-tomcat-mod_jk-sso-cas-mod_auth_cas)  
-* [java拦截器、过滤器的介绍](http://blog.csdn.net/lzwjavaphp/article/details/13771109)
-* [tomcat cas 的配置](http://www.ibm.com/developerworks/cn/opensource/os-cn-cas/index.html)虽然有些老了，不过挺详细  
-* [ldif文件的详细说明](http://www.cnblogs.com/SkyMouse/archive/2010/10/25/2340750.html)  
-* [多个tomcat同时运行](http://blog.163.com/hegonghe@126/blog/static/50004810200871483335100/)  
-* [intellij的使用](http://jingyan.baidu.com/article/54b6b9c0f79b0c2d583b47d6.html)  
+1. [web.xml的配置说明](https://wiki.jasig.org/display/CASC/Configuring+the+Jasig+CAS+Client+for+Java+in+the+web.xml)
+2. [cas-client](https://github.com/Jasig/java-cas-client)  
+3. [a blog about tomcat cas configurations](https://www.howtoforge.com/how-to-set-up-apache-tomcat-mod_jk-sso-cas-mod_auth_cas)  
+4. [java拦截器、过滤器的介绍](http://blog.csdn.net/lzwjavaphp/article/details/13771109)
+5. [tomcat cas 的配置](http://www.ibm.com/developerworks/cn/opensource/os-cn-cas/index.html)虽然有些老了，不过挺详细  
+6. [ldif文件的详细说明](http://www.cnblogs.com/SkyMouse/archive/2010/10/25/2340750.html)  
+7. [多个tomcat同时运行](http://blog.163.com/hegonghe@126/blog/static/50004810200871483335100/)  
+8. [intellij的使用](http://jingyan.baidu.com/article/54b6b9c0f79b0c2d583b47d6.html)  
 
 
