@@ -8,7 +8,7 @@ markdown: kramdown
 disqus: Tomcruseal
 google_analytics: Tomcruseal
 title: Tomcruseal(Li Zb)
-
+future: true
 defaults:
   -
     scope:
