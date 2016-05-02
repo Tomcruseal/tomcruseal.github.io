@@ -16,7 +16,7 @@ The suite includes:
 + libraries implementing the LDAP protocol, and
 + utilities, tools, and sample clients.  
 首先，`sudo apt-get install slapd ldap-utils`安装软件包，安装完成后编辑配置文件`/etc/ldap/ldap.conf`，修改后的内容如下：  
-{% highlight apacheconf linenos %}
+{% highlight conf %}
 \#
 \# LDAP Defaults
 \#
@@ -56,7 +56,7 @@ uid:userid
 CAS认证中心需要的用户名、密码将存储在LDAP中，为了集成LDAP，首先需要下载jar包：**cas-server-support-ldap-3.5.2.jar**和**spring-ldap-1.3.1.RELEASE-all.jar**，放置于`webapps/cas/WEB-INF/lib`目录下。  
 CAS与LDAP集成有FastBindLdapAuthenticationHandler和BindLdapAuthenticationHandler两种接口，这里使用BindLdapAuthenticationHandler接口  
 在WEB-INFO/deployerConfigContext.xml添加如下ContextSource：
-{% highlight xml linenos %}
+{% highlight xml  %}
 	<bean id="contextSource" class="org.springframework.ldap.core.support.LdapContextSource">
 	  <!-- DO NOT enable JNDI pooling for context sources that perform LDAP bind operations. -->
 	  <property name="pooled" value="false"/>
@@ -123,7 +123,7 @@ CAS与LDAP集成有FastBindLdapAuthenticationHandler和BindLdapAuthenticationHan
 在本机测试时，本机上一共有3个tomcat server同时运行（1个cas server,2 个客户端）,为了使它们互相不产生冲突，可依次改变`catalina.sh`中的变量`CATALINA_HOME`,如`CATALINA_HOME1`等等。  
 ##部署CAS-Server相关的Tomcat
 解压`apache-tomcat-8.0.33.zip`并重命名后的路径为`/home/kim/tomcat-cas`，在文件`conf/server.xml`中找到：
-{% highlight xml linenos %}
+{% highlight xml  %}
     <!--
     <Connector port="8443" protocol="org.apache.coyote.http11.Http11Protocol"
        maxThreads="150" SSLEnabled="true" scheme="https" secure="true"
@@ -132,7 +132,7 @@ CAS与LDAP集成有FastBindLdapAuthenticationHandler和BindLdapAuthenticationHan
 {% endhighlight %}
 
 去掉注释，修改为如下：
-{% highlight xml linenos %}
+{% highlight xml  %}
      <Connector port="8443" protocol="org.apache.coyote.http11.Http11Protocol"
        maxThreads="150" SSLEnabled="true" scheme="https" secure="true"
        keystoreFile="/home/kim/tomcatsso.keystore" keystorePass="password"
@@ -146,7 +146,7 @@ CAS与LDAP集成有FastBindLdapAuthenticationHandler和BindLdapAuthenticationHan
 解压`cas-client-3.2.1-release.zip`，提取`cas-client-3.2.1-release/cas-client-3.2.1/modules/cas-client-core-3.2.1.jar`文件，以`tomcat`自带的`examples`作为测试样例。
 
 解压`apache-tomcat-8.0.33.zip`并重命名后的路径为`/home/kim/download/myapp1`，修改`conf/server.xml`文件的`http`访问端口，`shutdown`端口，以及`JVM`启动端口：
-{% highlight xml linenos %}
+{% highlight xml  %}
     <Server port="18005" shutdown="SHUTDOWN">
     ...
     <Connector port="18080" protocol="HTTP/1.1"
@@ -157,7 +157,7 @@ CAS与LDAP集成有FastBindLdapAuthenticationHandler和BindLdapAuthenticationHan
 {% endhighlight %}
 把`cas-client-core-3.2.1.jar`和`commons-logging-1.1.1.jar`复制到`/home/kim/download/myapp1/webapps/examples/WEB-INF/lib`目录下。
 修改`web.xml`，在`web.xml`末尾添加以下内容：  
-{% highlight xml linenos %}
+{% highlight xml  %}
     <!-- ======================== 单点登录开始 ======================== -->
         <filter>
           <filter-name>CAS Filter</filter-name>
