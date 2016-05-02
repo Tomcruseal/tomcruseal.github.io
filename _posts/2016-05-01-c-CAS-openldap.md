@@ -16,22 +16,22 @@ The suite includes:
 + libraries implementing the LDAP protocol, and
 + utilities, tools, and sample clients.  
 首先，`sudo apt-get install slapd ldap-utils`安装软件包，安装完成后编辑配置文件`/etc/ldap/ldap.conf`，修改后的内容如下：  
-{% highlight apacheconf linenos %}
-#
-# LDAP Defaults
-#
+{% highlight conf linenos %}
+\#
+\# LDAP Defaults
+\#
 
-# See ldap.conf(5) for details
-# This file should be world readable but not world writable.
+\# See ldap.conf(5) for details
+\# This file should be world readable but not world writable.
 
 BASE	dc=test,dc=com
 URI	ldap://test.com ldap://test.com:666
 
-#SIZELIMIT	12
-#TIMELIMIT	15
-#DEREF		never
+\#SIZELIMIT	12
+\#TIMELIMIT	15
+\#DEREF		never
 
-# TLS certificates (needed for GnuTLS)
+\# TLS certificates (needed for GnuTLS)
 TLS_CACERT	/etc/ssl/certs/ca-certificates.crt
 {% endhighlight %}  
 编辑完成后保存，执行以下命令：
