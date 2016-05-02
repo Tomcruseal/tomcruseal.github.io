@@ -9,14 +9,14 @@ comments: true
 上周配置CAS和OpenL搭配，直到今天才基本完成，由于各种教程都与实际情况有些许区别，故记录如下  
 本记录整理自两位师兄给出的配置文件，结合实际情况和官方文档、各种博客做了修改。  
 `系统环境：Ubuntu 12.06 64位，tomcat-8.0.33，JDK 1.8.0_91`  
-##openldap的安装和配置
+#### openldap的安装和配置
 OpenLDAP Software is an open source implementation of the **Lightweight Directory Access Protocol**.  
 The suite includes:
 + slapd - stand-alone LDAP daemon (server)
 + libraries implementing the LDAP protocol, and
 + utilities, tools, and sample clients.  
 首先，`sudo apt-get install slapd ldap-utils`安装软件包，安装完成后编辑配置文件`/etc/ldap/ldap.conf`，修改后的内容如下：  
-`
+{% highlight apacheconf linenos %}
 #
 # LDAP Defaults
 #
@@ -33,25 +33,25 @@ URI	ldap://test.com ldap://test.com:666
 
 # TLS certificates (needed for GnuTLS)
 TLS_CACERT	/etc/ssl/certs/ca-certificates.crt
-` 
+{% endhighlight %}  
 编辑完成后保存，执行以下命令：
 `sudo dpkg-reconfigure slapd`  
 该命令是配置生效ldap,而以往的版本有一个配置文件`/etc/openldap/slapd.d/`.接下来会弹出一系列窗口，根据情况选择。  
 接下来，创建组和用户--在`/home/kim`下创建`test.com.ldif  
 这里各组成部分的意思是：  
-`
+{% highlight apacheconf linenos %}
 dc:domian component
 dn:distinguished name
 ou:organizatin unit
 cn:common name
 sn:surname
 uid:userid
-`
+{% endhighlight %}  
 更多解释[详见](http://www.cnblogs.com/SkyMouse/archive/2010/10/25/2340750.html)  
 添加：`dapadd -x -D cn=admin,dc=test,dc=com -W -f test.com.ldif`  
 查询：`ldapsearch -h test.com -x -LLL -W -D cn=admin,dc=test,dc=com -b dc=test,dc=com`  
 输入`ldapsearch -x`查看添加的用户和组。  
-##配置CAS
+#### 配置CAS
 CAS认证中心需要的用户名、密码将存储在LDAP中，为了集成LDAP，首先需要下载jar包：**cas-server-support-ldap-3.5.2.jar**和**spring-ldap-1.3.1.RELEASE-all.jar**，放置于`webapps/cas/WEB-INF/lib`目录下。  
 CAS与LDAP集成有FastBindLdapAuthenticationHandler和BindLdapAuthenticationHandler两种接口，这里使用BindLdapAuthenticationHandler接口  
 在WEB-INFO/deployerConfigContext.xml添加如下ContextSource：
@@ -100,7 +100,7 @@ CAS与LDAP集成有FastBindLdapAuthenticationHandler和BindLdapAuthenticationHan
     p:contextSource-ref="contextSource" />
 {% endhighlight %}
 到目前为止，我没有替换，于是登陆CAS的时候只需要用户名和密码相同即可通过验证。  
-##创建证书
+#### 创建证书
 使用`JDK`自带的`keytool`工具生成证书：
 `keytool -genkey -alias tomcatsso -keyalg RSA -keysize 1024 -keypass password -validity 365 -keystore /home/kim/tomcatsso.keystore  -storepass password`
 
@@ -113,7 +113,7 @@ CAS与LDAP集成有FastBindLdapAuthenticationHandler和BindLdapAuthenticationHan
 * `-keystore`：指定密钥库的名称(产生的各类信息将不在`.keystore`文件中)
 * `-storepass`：指定密钥库的密码(获取`keystore`信息所需的密码)
 
-##导出证书
+#### 导出证书
 `keytool -export -alias tomcatsso -keystore /home/kimtomcatsso.keystore -file /home/kim/tomcatsso.crt -storepass tomcatsso`
 生成的证书文件为`tomcatsso.crt`，位于运行该命令所在的当前目录下。
 ##客户端导入证书
@@ -139,9 +139,9 @@ CAS与LDAP集成有FastBindLdapAuthenticationHandler和BindLdapAuthenticationHan
 {% endhighlight %}
 解压提取`cas-server-3.5.2-release/cas-server-3.5.2/modules/cas-server-webapp-3.5.2.war`文件，把该文件拷贝到`/home/kim/tomcat-cas/tomcat-cas/webapps/` 目下，并重命名为：`cas.war`。  
 启动`tomcat-cas`，在浏览器地址栏输入：`https://localhost:8443/cas/login` 。输入相同的用户名和密码，即可登陆成功。  
-##部署CAS-Client相关的Tomcat
+#### 部署CAS-Client相关的Tomcat
 
-###安装配置 myapp1
+##### 安装配置 myapp1
 解压`cas-client-3.2.1-release.zip`，提取`cas-client-3.2.1-release/cas-client-3.2.1/modules/cas-client-core-3.2.1.jar`文件，以`tomcat`自带的`examples`作为测试样例。
 
 解压`apache-tomcat-8.0.33.zip`并重命名后的路径为`/home/kim/download/myapp1`，修改`conf/server.xml`文件的`http`访问端口，`shutdown`端口，以及`JVM`启动端口：
@@ -198,12 +198,12 @@ CAS与LDAP集成有FastBindLdapAuthenticationHandler和BindLdapAuthenticationHan
 由于目前只测试单点登录功能，未测试单点登出，所以省略掉单点登出的相关配置，特别重要的是，根据官网文档的提示，如果没有`authentication`的过滤器，跳转将会报错另外还需。
 要特别注意的是`<param-value>`里`url`的写法.  
 类似地，配置myapp2,不过tomcat-server应使用不同的端口号以避免冲突。  
-##测试  
+#### 测试  
 先后启动CAS-server,myapp1,myapp2,再在浏览器中输入`http://myapp1.test.com:18080/examples/servlets/servlet/HelloWorldExample ` 浏览器跳转到cas服务器，输入与之前相同的
 用户名和密码后，立刻出现"Hello World!".再在浏览器中输入` http://myapp2.test.com:28080/examples/servlets/servlet/HelloWorldExample `，此时没出现跳转即可看到"Hello World!"  
 
 
-参考：
+参考：  
 * [web.xml的配置说明](https://wiki.jasig.org/display/CASC/Configuring+the+Jasig+CAS+Client+for+Java+in+the+web.xml)
 * [cas-client](https://github.com/Jasig/java-cas-client)  
 * [a blog about tomcat cas configurations](https://www.howtoforge.com/how-to-set-up-apache-tomcat-mod_jk-sso-cas-mod_auth_cas)  
