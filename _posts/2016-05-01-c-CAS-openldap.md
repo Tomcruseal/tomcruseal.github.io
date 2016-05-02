@@ -34,7 +34,7 @@ URI	ldap://test.com ldap://test.com:666
 # TLS certificates (needed for GnuTLS)
 TLS_CACERT	/etc/ssl/certs/ca-certificates.crt
 {% endhighlight %}
-  
+# 你大爷的  
 编辑完成后保存，执行以下命令：
 `sudo dpkg-reconfigure slapd`  
 该命令是配置生效ldap,而以往的版本有一个配置文件`/etc/openldap/slapd.d/`.接下来会弹出一系列窗口，根据情况选择。  
