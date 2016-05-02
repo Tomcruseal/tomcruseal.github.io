@@ -16,25 +16,25 @@ The suite includes:
 + libraries implementing the LDAP protocol, and
 + utilities, tools, and sample clients.  
 首先，`sudo apt-get install slapd ldap-utils`安装软件包，安装完成后编辑配置文件`/etc/ldap/ldap.conf`，修改后的内容如下：  
-{% highlight java linenos %}
-#
-# LDAP Defaults
-#
+{% highlight conf linenos %}
+\#
+\# LDAP Defaults
+\#
 
-# See ldap.conf(5) for details
-# This file should be world readable but not world writable.
+\# See ldap.conf(5) for details
+\# This file should be world readable but not world writable.
 
 BASE	dc=test,dc=com
 URI	ldap://test.com ldap://test.com:666
 
-#SIZELIMIT	12
-#TIMELIMIT	15
-#DEREF		never
+\#SIZELIMIT	12
+\#TIMELIMIT	15
+\#DEREF		never
 
-# TLS certificates (needed for GnuTLS)
+\# TLS certificates (needed for GnuTLS)
 TLS_CACERT	/etc/ssl/certs/ca-certificates.crt
 {% endhighlight %}
-# 你大爷的  
+  
 编辑完成后保存，执行以下命令：
 `sudo dpkg-reconfigure slapd`  
 该命令是配置生效ldap,而以往的版本有一个配置文件`/etc/openldap/slapd.d/`.接下来会弹出一系列窗口，根据情况选择。  
@@ -156,7 +156,7 @@ CAS与LDAP集成有FastBindLdapAuthenticationHandler和BindLdapAuthenticationHan
     <Connector port="18009" protocol="AJP/1.3" redirectPort="18443" />
 {% endhighlight %}
 把`cas-client-core-3.2.1.jar`和`commons-logging-1.1.1.jar`复制到`/home/kim/download/myapp1/webapps/examples/WEB-INF/lib`目录下。
-修改`web.xml`，在`web.xml`末尾添加以下内容：
+修改`web.xml`，在`web.xml`末尾添加以下内容：  
 {% highlight xml linenos %}
     <!-- ======================== 单点登录开始 ======================== -->
         <filter>
@@ -194,7 +194,7 @@ CAS与LDAP集成有FastBindLdapAuthenticationHandler和BindLdapAuthenticationHan
           <url-pattern>/*</url-pattern>
         </filter-mapping>
      
-    <!-- ======================== 单点登录结束 ======================== -->
+    <!-- ======================== 单点登录结束 ======================== -->  
 {% endhighlight %}
 由于目前只测试单点登录功能，未测试单点登出，所以省略掉单点登出的相关配置，特别重要的是，根据官网文档的提示，如果没有`authentication`的过滤器，跳转将会报错另外还需。
 要特别注意的是`<param-value>`里`url`的写法.  
@@ -205,10 +205,10 @@ CAS与LDAP集成有FastBindLdapAuthenticationHandler和BindLdapAuthenticationHan
 
 
 参考：  
-1. [web.xml的配置说明](https://wiki.jasig.org/display/CASC/Configuring+the+Jasig+CAS+Client+for+Java+in+the+web.xml)
+1. [web.xml的配置说明](https://wiki.jasig.org/display/CASC/Configuring+the+Jasig+CAS+Client+for+Java+in+the+web.xml)  
 2. [cas-client](https://github.com/Jasig/java-cas-client)  
 3. [a blog about tomcat cas configurations](https://www.howtoforge.com/how-to-set-up-apache-tomcat-mod_jk-sso-cas-mod_auth_cas)  
-4. [java拦截器、过滤器的介绍](http://blog.csdn.net/lzwjavaphp/article/details/13771109)
+4. [java拦截器、过滤器的介绍](http://blog.csdn.net/lzwjavaphp/article/details/13771109)  
 5. [tomcat cas 的配置](http://www.ibm.com/developerworks/cn/opensource/os-cn-cas/index.html)虽然有些老了，不过挺详细  
 6. [ldif文件的详细说明](http://www.cnblogs.com/SkyMouse/archive/2010/10/25/2340750.html)  
 7. [多个tomcat同时运行](http://blog.163.com/hegonghe@126/blog/static/50004810200871483335100/)  
