@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Numerical Integration"
-categories: Numerical Method
+categories: "Numerical Method"
 date:  2016-05-16 11:07:00 +0800
 ---
 
