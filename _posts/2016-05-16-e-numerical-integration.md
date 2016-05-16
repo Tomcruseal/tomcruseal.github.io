@@ -2,7 +2,7 @@
 layout: post
 title: "Numerical Integration"
 categories: Numerical Method
-date:  2016-05-016 14:40:00 +0800
+date:  2016-05-016 11:04:00 +0800
 ---
 
 **Many** days passed since I updated last time.Since I was busy with my Software Engineering project rencently,yet I have no time taking care of  my blog.Today is a little note of some critical points in my Numerical Method class,and I paln to write another one after the presentation of my SE project,which is due on the day after tomorrow.  
